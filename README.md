@@ -1,5 +1,9 @@
 # Random Shop Kata
 
+## Testing
+
+Para ejecutar los tests escribe `./gradlew test`
+
 Bienvenida a Random Shop! Nuestro anterior programador, Mariano, ha dejado la empresa para montar su propia startup de
 venta de motos usando blockchain. Por suerte, hemos podido contrataros para continuar trabajando en nuestro sistema de venta 
 
