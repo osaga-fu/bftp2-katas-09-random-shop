@@ -3,8 +3,73 @@ import org.junit.jupiter.api.Test;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
-public class ShoppingCartTest {
+import java.math.BigDecimal;
 
+public class ShoppingCartTest {
+    @Test
+    void calculatePriceForWalkingPets(){
+        ShoppingCart shoppingCart = new ShoppingCart();
+
+        Product product = new Product(4, null, false, "brown", null, "Pepe", null);
+
+        shoppingCart.addProduct(product);
+
+        assertThat(shoppingCart.getTotalPrice(), equalTo(16.8));
+    }
+
+    @Test
+    void calculatePriceForWine() {
+        ShoppingCart shoppingCart = new ShoppingCart();
+
+        Product product = new Product(null, 5, false, null, null, "el tio juanillo", null);
+
+        shoppingCart.addProduct(product);
+
+        assertThat(shoppingCart.getTotalPrice(), equalTo(100.0));
+    }
+
+    @Test
+    void calculatePriceForCheese() {
+        ShoppingCart shoppingCart = new ShoppingCart();
+
+        Product product = new Product(null, 5, true, null, null, "French Camembert", null);
+
+        shoppingCart.addProduct(product);
+
+        assertThat(shoppingCart.getTotalPrice(), equalTo(50.0));
+    }
+
+    @Test
+    void calculatePriceForFish_Blue(){
+        ShoppingCart shoppingCart = new ShoppingCart();
+
+        Product product = new Product(null, null, false, "blue", BigDecimal.valueOf(0), null, null);
+
+        shoppingCart.addProduct(product);
+
+        assertThat(shoppingCart.getTotalPrice(), equalTo(0.10));
+    }
+
+    @Test
+    void calculatePriceForFish_Gold(){
+        ShoppingCart shoppingCart = new ShoppingCart();
+
+        Product product = new Product(null, null, false, "gold", BigDecimal.valueOf(1), null, null);
+        shoppingCart.addProduct(product);
+
+        assertThat(shoppingCart.getTotalPrice(), equalTo(100.0));
+    }
+
+    @Test
+    void calculatePriceForFish_Green(){
+        ShoppingCart shoppingCart = new ShoppingCart();
+
+        Product product = new Product(null, null, false, "green", BigDecimal.valueOf(1), null, null);
+        shoppingCart.addProduct(product);
+
+        assertThat(shoppingCart.getTotalPrice(), equalTo(1.0));
+    }
+    
     @Test
     void calculatePriceForMagicCards_red() {
         ShoppingCart shoppingCart = new ShoppingCart();
@@ -27,27 +92,6 @@ public class ShoppingCartTest {
         assertThat(shoppingCart.getTotalPrice(), equalTo(5.0));
     }
 
-    @Test
-    void calculatePriceForWine() {
-        ShoppingCart shoppingCart = new ShoppingCart();
-
-        Product product = new Product(null, 5, false, null, null, "el tio juanillo", null);
-
-
-        shoppingCart.addProduct(product);
-
-        assertThat(shoppingCart.getTotalPrice(), equalTo(100.0));
-    }
-
-    @Test
-    void calculatePriceForCheese() {
-        ShoppingCart shoppingCart = new ShoppingCart();
-
-        Product product = new Product(null, 5, true, null, null, "French Camembert", null);
-
-        shoppingCart.addProduct(product);
-
-        assertThat(shoppingCart.getTotalPrice(), equalTo(50.0));
-    }
+  
 
 }
