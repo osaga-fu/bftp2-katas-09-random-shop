@@ -61,7 +61,7 @@ public class ShoppingCartTest {
     }
 
     @Test
-    void calculatePriceForFish_Green(){
+    void calculatePriceForFishRestOfColors(){
         ShoppingCart shoppingCart = new ShoppingCart();
 
         Product product = new Product(null, null, false, "green", BigDecimal.valueOf(1), null, null);
