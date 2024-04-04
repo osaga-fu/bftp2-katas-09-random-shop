@@ -92,6 +92,37 @@ public class ShoppingCartTest {
         assertThat(shoppingCart.getTotalPrice(), equalTo(5.0));
     }
 
-  
+    @Test
+    void calculatePriceForMagicCards_green() {
+        ShoppingCart shoppingCart = new ShoppingCart();
+
+        Product product = new Product(null, null, false, "green", null, "Magic: The Gathering - Maga Eternal", null);
+
+        shoppingCart.addProduct(product);
+
+        assertThat(shoppingCart.getTotalPrice(), equalTo(4.4));
+    }
+
+    @Test
+    void calculatePriceForMagicCards_black() {
+        ShoppingCart shoppingCart = new ShoppingCart();
+
+        Product product = new Product(null, null, false, "black", null, "Magic: The Gathering - Maga Eternal", null);
+
+        shoppingCart.addProduct(product);
+
+        assertThat(shoppingCart.getTotalPrice(), equalTo(6.8));
+    }
+
+    @Test
+    void calculatePriceForMagicCardsOtherColors() {
+        ShoppingCart shoppingCart = new ShoppingCart();
+
+        Product product = new Product(null, null, false, "orange", null, "Magic: The Gathering - Maga Eternal", null);
+
+        shoppingCart.addProduct(product);
+
+        assertThat(shoppingCart.getTotalPrice(), equalTo(2.0));
+    }
 
 }
